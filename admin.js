@@ -5,9 +5,8 @@ const adminSearch = document.getElementById("adminSearch");
 
 let adminCars = [];
 
-/* =========================
-   FETCH ALL CARS
-========================= */
+// FETCH ALL CARS 
+// using asynchronus function because it include fetching the data 
 
 async function fetchCars() {
 
@@ -33,9 +32,8 @@ async function fetchCars() {
   }
 }
 
-/* =========================
-   RENDER CARS
-========================= */
+// RENDER CARS function
+// the fetched cars data is now display when this function is called 
 
 function renderCars(cars) {
 
@@ -73,15 +71,13 @@ function renderCars(cars) {
 
         <button
           class="btn btn-primary btn-sm me-2 edit-btn"
-          data-id="${car.id}"
-        >
+          data-id="${car.id}">
           Edit
         </button>
 
         <button
           class="btn btn-danger btn-sm delete-btn"
-          data-id="${car.id}"
-        >
+          data-id="${car.id}">
           Delete
         </button>
 
@@ -94,9 +90,8 @@ function renderCars(cars) {
   addButtonEvents();
 }
 
-/* =========================
-   BUTTON EVENTS
-========================= */
+// BUTTON EVENTS
+// getting the button elements of the html to apply some taks on them 
 
 function addButtonEvents() {
 
@@ -125,9 +120,9 @@ function addButtonEvents() {
   });
 }
 
-/* =========================
-   DELETE CAR
-========================= */
+// DELETE CAR
+//  this is to delete a car card of the specific id given to it
+//  try to handle the error with the try catch  
 
 async function deleteCar(id) {
 
@@ -158,9 +153,8 @@ async function deleteCar(id) {
   }
 }
 
-/* =========================
-   OPEN EDIT MODAL
-========================= */
+// OPEN EDIT MODAL
+//  getting the id of the car modal to be eddited and getting the values of the the car card fields 
 
 function openEditModal(id) {
 
@@ -190,9 +184,8 @@ function openEditModal(id) {
   modal.show();
 }
 
-/* =========================
-   EDIT CAR
-========================= */
+//  EDIT CAR
+//  using the patch method in the edit car function because we only want to update a data of some fields not the whole 
 
 async function editCar(e) {
 
@@ -246,9 +239,8 @@ async function editCar(e) {
   }
 }
 
-/* =========================
-   SHOW STATISTICS
-========================= */
+// SHOW STATISTICS
+// this function is attached with average portion in the of the admin display panel at the top 
 
 function showStats(cars) {
 
@@ -305,9 +297,8 @@ function showStats(cars) {
     commonBrand;
 }
 
-/* =========================
-   SEARCH FUNCTIONALITY
-========================= */
+// SEARCH FUNCTIONALITY
+//  addding the search event listner at the input field to get the instant reponse form this listner 
 
 adminSearch.addEventListener("input", () => {
 
@@ -321,16 +312,13 @@ adminSearch.addEventListener("input", () => {
   renderCars(filteredCars);
 });
 
-/* =========================
-   FORM SUBMIT
-========================= */
+//  FORM SUBMI
+//  this is used to submit the form when the task is completed 
 
 document
   .getElementById("editForm")
   .addEventListener("submit", editCar);
 
-/* =========================
-   INITIAL LOAD
-========================= */
+// INITIAL LOAD the cars in the admin .html page 
 
 fetchCars();
