@@ -28,7 +28,7 @@ async function fetchCars() {
 
   } catch (error) {
 
-    console.log(error.message);
+    alert(error.message);
   }
 }
 
@@ -149,7 +149,7 @@ async function deleteCar(id) {
 
   } catch (error) {
 
-    console.log(error.message);
+    alert(error.message);
   }
 }
 
@@ -235,7 +235,7 @@ async function editCar(e) {
 
   } catch (error) {
 
-    console.log(error.message);
+    alert(error.message);
   }
 }
 
