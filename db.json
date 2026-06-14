@@ -112,6 +112,5 @@
       "description": "Compact hatchback with great mileage.",
       "contact": "03229876543"
     }
-  ],
-  "$schema": "./node_modules/json-server/schema.json"
+  ]
 }
