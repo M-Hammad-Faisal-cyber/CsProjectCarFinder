@@ -12,9 +12,8 @@ const carForm = document.getElementById("carForm");
 
 let allCars = [];
 
-/* =========================
-   FETCH CARS
-========================= */
+// FETCH CARS
+// this function is made async because it fetches all cars data 
 
 async function fetchCars() {
 
@@ -42,9 +41,9 @@ async function fetchCars() {
   }
 }
 
-/* =========================
-   RENDER CARS
-========================= */
+// RENDER CARS
+//  after fetching the data we are trying to render the cars data
+//  and we are doing this for all the cars cards 
 
 function renderCars(cars) {
 
@@ -123,9 +122,8 @@ function renderCars(cars) {
   });
 }
 
-/* =========================
-   FILTER CARS
-========================= */
+// FILTER CARS
+//  in this function we are filtering the user requirements and bringing the cars data to the user 
 
 function filterCars() {
 
@@ -165,9 +163,8 @@ function filterCars() {
   renderCars(filteredCars);
 }
 
-/* =========================
-   VALIDATE FORM
-========================= */
+//  VALIDATE FORM 
+// validaing the cars data in the car adding form 
 
 function validateForm() {
 
@@ -255,9 +252,8 @@ function validateForm() {
   return isValid;
 }
 
-/* =========================
-   ADD CAR
-========================= */
+//  ADD CAR
+//  adding the cars data uusing the post method 
 
 async function addCar(e) {
 
@@ -309,10 +305,7 @@ async function addCar(e) {
     showMessage(error.message, "danger");
   }
 }
-
-/* =========================
-   HELPER FUNCTIONS
-========================= */
+// SHOW ERROR 
 
 function showMessage(message, type) {
 
@@ -341,9 +334,8 @@ function clearErrors() {
   });
 }
 
-/* =========================
-   DARK MODE
-========================= */
+//  DARK MODE
+// making the html dark button works 
 
 const darkModeBtn = document.getElementById("darkModeBtn");
 
@@ -352,9 +344,8 @@ darkModeBtn.addEventListener("click", () => {
   document.body.classList.toggle("dark-mode");
 });
 
-/* =========================
-   EVENT LISTENERS
-========================= */
+// EVENT LISTENERS
+// on different things like submit , input , changes made 
 
 brandFilter.addEventListener("change", filterCars);
 
@@ -366,8 +357,6 @@ sortPrice.addEventListener("change", filterCars);
 
 carForm.addEventListener("submit", addCar);
 
-/* =========================
-   INITIAL LOAD
-========================= */
-
+// INITIAL LOAD
+//  because java script the whole file so we fetch cars at the end 
 fetchCars();
